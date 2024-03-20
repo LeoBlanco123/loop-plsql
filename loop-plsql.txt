@@ -1,0 +1,119 @@
+SET SERVEROUTPUT ON
+
+DECLARE
+    v_contador number(2):=1;
+BEGIN
+    LOOP
+        dbms_output.put_line(v_contador);
+        v_contador:= v_contador + 1;
+        EXIT WHEN v_contador > 20;
+    END LOOP;
+END;
+
+DECLARE
+    v_contador number(2):=1;
+BEGIN
+    WHILE v_contador <= 20 LOOP
+        dbms_output.put_line(v_contador);
+        v_contador:= v_contador + 1;
+    END LOOP;
+END;
+
+BEGIN
+    FOR v_contador IN 1..20 LOOP
+        dbms_output.put_line(v_contador);
+    END LOOP;
+END;
+
+BEGIN
+    FOR v_contador IN REVERSE 1..20 LOOP
+        dbms_output.put_line(v_contador);
+    END LOOP;
+END;
+
+    
+--1)
+
+DECLARE
+    v_contador number(3):=1;
+    v_numero number(3):= '&numero';
+    v_resultado number(3);
+BEGIN
+    LOOP
+        v_resultado := v_numero * v_contador;
+        dbms_output.put_line(v_resultado);
+        v_contador:= v_contador + 1;
+        EXIT WHEN v_contador > 10;
+    END LOOP;
+END;
+
+DECLARE
+    v_numero number(3):= '&numero';
+    v_resultado number(3);
+BEGIN
+    FOR v_contador IN 1..10 LOOP
+        v_resultado := v_numero * v_contador;
+        dbms_output.put_line(v_resultado);
+    END LOOP;
+END;
+
+
+DECLARE
+    v_contador number(3):=1;
+    v_numero number(3):= '&numero';
+    v_resultado number(3);
+BEGIN
+    WHILE v_contador <= 10 LOOP
+        v_resultado := v_numero * v_contador;
+        dbms_output.put_line(v_resultado);
+        v_contador:= v_contador + 1;
+    END LOOP;
+END;
+
+
+--2)
+
+DECLARE
+    v_numero number(3):= '&numero1';
+    v_numero2 number(3):= '&numero2';
+    
+    v_par number (3):=0;
+    v_impar number (3):= 0;
+    
+BEGIN
+    FOR v_contador IN v_numero..v_numero2 LOOP
+        IF v_contador MOD 2 = 0 then
+            v_par := v_par + 1;
+        ELSE
+            v_impar := v_impar + 1;
+        END IF;
+    END LOOP;
+    
+    dbms_output.put_line('Numeros Pares ' || v_par );
+    dbms_output.put_line('Numeros Impares ' || v_impar);
+    
+END;
+
+        
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
